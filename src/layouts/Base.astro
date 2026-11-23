@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const siteUrl = "https://adarsh.fun/";
+const sections = [
+  { id: "now", label: "Now" },
+  { id: "work", label: "Work" },
+  { id: "papers", label: "Papers" },
+  { id: "models", label: "Models" },
+  { id: "code", label: "Code" },
+  { id: "resume", label: "Resume" },
+  { id: "background", label: "Background" },
+  { id: "contact", label: "Contact" },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#f6f1e8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Manrope:wght@400..800&display=swap"
+    />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <div class="progress" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Sections">
+      <a class="nav-name nav-keep" href="#top">Adarsh</a>
+      {sections.map((s) => <a href={`#${s.id}`} data-nav={s.id}>{s.label}</a>)}
+    </nav>
+
+    <slot />
+
+    <script>
+      const root = document.documentElement;
+
+      // reading progress
+      const bar = document.querySelector<HTMLElement>(".progress");
+      const onScroll = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const p = max > 0 ? window.scrollY / max : 0;
+        if (bar) bar.style.transform = `scaleX(${Math.min(1, Math.max(0, p))})`;
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      // reveal on scroll
+      const reveals = document.querySelectorAll<HTMLElement>(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("in");
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        reveals.forEach((el) => io.observe(el));
+      } else {
+        reveals.forEach((el) => el.classList.add("in"));
+      }
+
+      // highlight the nav item for the section in view
+      const links = new Map<string, HTMLAnchorElement>();
+      document.querySelectorAll<HTMLAnchorElement>("[data-nav]").forEach((a) => {
+        links.set(a.dataset.nav as string, a);
+      });
+      const sectionEls = [...links.keys()]
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => !!el);
+      if ("IntersectionObserver" in window) {
+        const navIO = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              const id = (e.target as HTMLElement).id;
+              const a = links.get(id);
+              if (!a) continue;
+              if (e.isIntersecting) {
+                links.forEach((el) => el.classList.remove("active"));
+                a.classList.add("active");
+              }
+            }
+          },
+          { rootMargin: "-45% 0px -50% 0px" }
+        );
+        sectionEls.forEach((el) => navIO.observe(el));
+      }
+      root.dataset.ready = "1";
+    </script>
+  </body>
+</html>

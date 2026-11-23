@@ -1,0 +1,44 @@
+---
+import hf from "../data/huggingface.json";
+
+const total = hf.totalModelDownloads;
+const fmt = (n: number) => n.toLocaleString("en-US");
+---
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Machine learning engineer</span>
+    <h1>
+      I make language models <span class="grad-text">reason</span> better, then build the tests that prove it.
+    </h1>
+    <p class="sub">
+      I work on post-training, reinforcement learning, and evaluation for coding agents. My research covers
+      table retrieval and reasoning distillation. These days I am the founding ML engineer at Noah Labs.
+    </p>
+    <p class="by">Adarsh Singh, <strong>Tempe, Arizona</strong></p>
+
+    <div class="ctas">
+      <a class="btn btn-primary" href="#now">See what I am working on <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#resume">Read the resume</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num"><span class="grad-text" data-hf-total>{fmt(total)}</span>+</div>
+        <div class="label">model downloads on Hugging Face, all time. This number updates live.</div>
+      </div>
+      <div class="stat">
+        <div class="num">3</div>
+        <div class="label">papers, one accepted at ACL 2026 and two in review.</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span class="grad-text">+33%</span></div>
+        <div class="label">Terminal-Bench 2.0 gain for one 30B model, with no change to its weights.</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#now" aria-label="Scroll to the next section">
+    Scroll <span></span>
+  </a>
+</header>

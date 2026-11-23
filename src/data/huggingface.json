@@ -1,0 +1,336 @@
+{
+  "generatedAt": "2026-11-23T07:09:59.103Z",
+  "user": "AdarshSingh7647",
+  "totalModelDownloads": 75270,
+  "totalDatasetDownloads": 722,
+  "modelCount": 29,
+  "datasetCount": 7,
+  "models": [
+    {
+      "id": "AdarshSingh7647/Std-SFT-Passage-8B",
+      "name": "Std-SFT-Passage-8B",
+      "downloadsAll": 10063,
+      "downloads30d": 4716,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Std-SFT-Passage-14B",
+      "name": "Std-SFT-Passage-14B",
+      "downloadsAll": 9555,
+      "downloads30d": 4296,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Passage-14B",
+      "name": "Eklav-Passage-14B",
+      "downloadsAll": 7771,
+      "downloads30d": 2890,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-8B-Math",
+      "name": "Eklav-8B-Math",
+      "downloadsAll": 5687,
+      "downloads30d": 1516,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-14B-Math-CotGen",
+      "name": "Eklav-14B-Math-CotGen",
+      "downloadsAll": 5671,
+      "downloads30d": 1506,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-9B-Math",
+      "name": "Eklav-9B-Math",
+      "downloadsAll": 5648,
+      "downloads30d": 1547,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-9B-Math-CotGen",
+      "name": "Eklav-9B-Math-CotGen",
+      "downloadsAll": 5614,
+      "downloads30d": 1527,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-8B-Math-CotGen",
+      "name": "Eklav-8B-Math-CotGen",
+      "downloadsAll": 5543,
+      "downloads30d": 1461,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Passage-8B",
+      "name": "Eklav-Passage-8B",
+      "downloadsAll": 2166,
+      "downloads30d": 757,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Std-SFT-Table-8B",
+      "name": "Std-SFT-Table-8B",
+      "downloadsAll": 2100,
+      "downloads30d": 487,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/Naive-SFT-Table-8B",
+      "name": "Naive-SFT-Table-8B",
+      "downloadsAll": 1949,
+      "downloads30d": 366,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Table-8B",
+      "name": "Eklav-Table-8B",
+      "downloadsAll": 1938,
+      "downloads30d": 377,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/Std-SFT-Passage-0.6B",
+      "name": "Std-SFT-Passage-0.6B",
+      "downloadsAll": 1352,
+      "downloads30d": 366,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Std-SFT-Passage-4B",
+      "name": "Std-SFT-Passage-4B",
+      "downloadsAll": 1298,
+      "downloads30d": 351,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Passage-0.6B",
+      "name": "Eklav-Passage-0.6B",
+      "downloadsAll": 1294,
+      "downloads30d": 359,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Passage-4B",
+      "name": "Eklav-Passage-4B",
+      "downloadsAll": 1283,
+      "downloads30d": 347,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Passage-9B",
+      "name": "Eklav-Passage-9B",
+      "downloadsAll": 1216,
+      "downloads30d": 328,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Std-SFT-Passage-9B",
+      "name": "Std-SFT-Passage-9B",
+      "downloadsAll": 1202,
+      "downloads30d": 323,
+      "likes": 0,
+      "lastModified": "2026-10-15",
+      "kind": "Passage"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-14B-Math",
+      "name": "Eklav-14B-Math",
+      "downloadsAll": 933,
+      "downloads30d": 14,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-4B-Math-CotGen",
+      "name": "Eklav-4B-Math-CotGen",
+      "downloadsAll": 903,
+      "downloads30d": 12,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-4B-Math",
+      "name": "Eklav-4B-Math",
+      "downloadsAll": 888,
+      "downloads30d": 9,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-7B-Reranker-CotGen",
+      "name": "Eklav-7B-Reranker-CotGen",
+      "downloadsAll": 500,
+      "downloads30d": 11,
+      "likes": 0,
+      "lastModified": "2026-09-02",
+      "kind": "Other"
+    },
+    {
+      "id": "AdarshSingh7647/TabRankMultiTableCoTGen",
+      "name": "TabRankMultiTableCoTGen",
+      "downloadsAll": 234,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-04",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/TabRankMultiTableCoTCond",
+      "name": "TabRankMultiTableCoTCond",
+      "downloadsAll": 232,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-04",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/TabRankMultiTableNaive",
+      "name": "TabRankMultiTableNaive",
+      "downloadsAll": 230,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-04",
+      "kind": "Table"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Question-Answering",
+      "name": "Eklav-Question-Answering",
+      "downloadsAll": 0,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-16",
+      "kind": "Other"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-AnswerOnly-GLM-Z1-9B",
+      "name": "Eklav-Reranker-AnswerOnly-GLM-Z1-9B",
+      "downloadsAll": 0,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-25",
+      "kind": "Other"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-AnswerOnly-Qwen3-4B",
+      "name": "Eklav-Reranker-AnswerOnly-Qwen3-4B",
+      "downloadsAll": 0,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-25",
+      "kind": "Other"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-MaskOnly-Qwen3-8B",
+      "name": "Eklav-Reranker-MaskOnly-Qwen3-8B",
+      "downloadsAll": 0,
+      "downloads30d": 0,
+      "likes": 0,
+      "lastModified": "2026-09-25",
+      "kind": "Other"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "AdarshSingh7647/Eklav-Math-CotGen-Data",
+      "name": "Eklav-Math-CotGen-Data",
+      "downloadsAll": 154,
+      "downloads30d": 49,
+      "likes": 0,
+      "lastModified": "2026-08-26",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Math-Data",
+      "name": "Eklav-Math-Data",
+      "downloadsAll": 123,
+      "downloads30d": 25,
+      "likes": 0,
+      "lastModified": "2026-08-26",
+      "kind": "Math"
+    },
+    {
+      "id": "AdarshSingh7647/ottqa-craft-enrichment",
+      "name": "ottqa-craft-enrichment",
+      "downloadsAll": 103,
+      "downloads30d": 59,
+      "likes": 0,
+      "lastModified": "2026-07-18",
+      "kind": "Other"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-Data",
+      "name": "Eklav-Reranker-Data",
+      "downloadsAll": 95,
+      "downloads30d": 16,
+      "likes": 0,
+      "lastModified": "2026-08-26",
+      "kind": "Data"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-CotGen-Data",
+      "name": "Eklav-Reranker-CotGen-Data",
+      "downloadsAll": 92,
+      "downloads30d": 17,
+      "likes": 0,
+      "lastModified": "2026-08-26",
+      "kind": "Data"
+    },
+    {
+      "id": "AdarshSingh7647/Eklav-Reranker-AnswerOnly-Data",
+      "name": "Eklav-Reranker-AnswerOnly-Data",
+      "downloadsAll": 85,
+      "downloads30d": 19,
+      "likes": 0,
+      "lastModified": "2026-09-24",
+      "kind": "Data"
+    },
+    {
+      "id": "AdarshSingh7647/nq-tables-craft-enrichment",
+      "name": "nq-tables-craft-enrichment",
+      "downloadsAll": 70,
+      "downloads30d": 29,
+      "likes": 0,
+      "lastModified": "2026-07-18",
+      "kind": "Table"
+    }
+  ]
+}

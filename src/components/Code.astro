@@ -1,0 +1,109 @@
+---
+import gh from "../data/github.json";
+
+const fmt = (n: number) => n.toLocaleString("en-US");
+const CELL = 11;
+const GAP = 3;
+const PITCH = CELL + GAP;
+const TOP = 22;
+const weeks = gh.weeks;
+const width = weeks.length * PITCH;
+const height = 7 * PITCH + TOP;
+const palette = ["#ebe3d3", "#ffe0b0", "#ffb547", "#ff7a52", "#6d5bd0"];
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// month labels: place a label on the first week that starts in a new month
+const monthMarks: { x: number; label: string }[] = [];
+let lastMonth = -1;
+weeks.forEach((w, i) => {
+  const first = w.days[0];
+  if (!first) return;
+  const m = new Date(first.date + "T00:00:00Z").getUTCMonth();
+  if (m !== lastMonth) {
+    const prev = monthMarks[monthMarks.length - 1];
+    const tooClose = prev && i - prev.x / PITCH < 3;
+    if (i < weeks.length - 2 && !tooClose) monthMarks.push({ x: i * PITCH, label: monthNames[m] });
+    lastMonth = m;
+  }
+});
+
+const snapshot = new Date(gh.generatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const longest = (() => {
+  let best = { run: 0, end: "" };
+  let run = 0;
+  for (const w of weeks) {
+    for (const d of w.days) {
+      if (d.count > 0) run += 1;
+      else run = 0;
+      if (run > best.run) best = { run, end: d.date };
+    }
+  }
+  return best;
+})();
+---
+
+<section class="section" id="code">
+  <div class="wrap">
+    <span class="eyebrow reveal">Code</span>
+    <h2 class="reveal">Commits, day by day</h2>
+    <p class="lede reveal">
+      A year of work on GitHub, pulled from my profile. Each square is one day. The darker the square, the more
+      contributions I made that day.
+    </p>
+
+    <div class="code-stats reveal">
+      <div class="code-stat">
+        <div class="num">{fmt(gh.totalContributions)}</div>
+        <div class="cap">contributions in the last year</div>
+      </div>
+      <div class="code-stat">
+        <div class="num">{fmt(gh.commits)}</div>
+        <div class="cap">commits</div>
+      </div>
+      <div class="code-stat">
+        <div class="num">{fmt(gh.pullRequests)}</div>
+        <div class="cap">pull requests</div>
+      </div>
+      <div class="code-stat">
+        <div class="num">{fmt(gh.repositories)}</div>
+        <div class="cap">public repositories</div>
+      </div>
+    </div>
+
+    <div class="graph reveal" role="img" aria-label={`GitHub contribution graph: ${fmt(gh.totalContributions)} contributions in the last year`}>
+      <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="xMinYMid meet">
+        {monthMarks.map((m) => (
+          <text class="month" x={m.x} y={12}>{m.label}</text>
+        ))}
+        {weeks.map((w, wi) =>
+          w.days.map((d) => {
+            const day = new Date(d.date + "T00:00:00Z").getUTCDay();
+            return (
+              <rect
+                class="d"
+                x={wi * PITCH}
+                y={TOP + day * PITCH}
+                width={CELL}
+                height={CELL}
+                rx="2.5"
+                fill={palette[d.level]}
+              >
+                <title>{`${d.count} contribution${d.count === 1 ? "" : "s"} on ${new Date(d.date + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}`}</title>
+              </rect>
+            );
+          })
+        )}
+      </svg>
+    </div>
+
+    <div class="graph-foot reveal">
+      <div class="legend">
+        <span>Less</span>
+        {palette.map((c) => <i style={`background:${c}`}></i>)}
+        <span>More</span>
+      </div>
+      <span>Longest streak: {longest.run} days. Updated {snapshot}.</span>
+      <a class="link gh" href="https://github.com/AdarshSingh7647" target="_blank" rel="noopener"><span class="dot"></span>Open my GitHub profile</a>
+    </div>
+  </div>
+</section>

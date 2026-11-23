@@ -1,0 +1,98 @@
+<section class="section" id="papers">
+  <div class="wrap">
+    <span class="eyebrow reveal">Papers</span>
+    <h2 class="reveal">Tables, retrieval, and teaching small models to reason</h2>
+    <p class="lede reveal">
+      Each paper asks a narrower question than the last. Can a small model learn the useful part of a bigger model's
+      reasoning without copying all of it? Can a table be retrieved no matter how it is written down?
+    </p>
+
+    <div class="papers">
+      <article class="paper featured reveal">
+        <div>
+          <div class="venue">
+            <span class="pill hot">ICLR 2027, under review</span>
+            <span class="pill">First author</span>
+          </div>
+          <h3>EKLAV: Elicited Key CoT Learning via Answer-Only Supervision</h3>
+          <p class="formerly">Previously released as TabRank.</p>
+          <p class="body">
+            The teacher's reasoning goes into the prompt, and the student trains only on the final answer. On BRIGHT
+            passage reranking it wins 41 of 48 model and domain comparisons. Against chain-of-thought distillation, it
+            cuts training compute by 24 to 32% and inference time by 15 to 33%.
+          </p>
+        </div>
+        <div class="side">
+          <div class="facts">
+            <div class="fact">
+              <div class="num"><span class="grad-text">41 / 48</span></div>
+              <div class="cap">model and domain comparisons won on BRIGHT</div>
+            </div>
+            <div class="fact">
+              <div class="num"><span class="grad-text">29</span> models</div>
+              <div class="cap">and 7 datasets released on Hugging Face</div>
+            </div>
+          </div>
+          <div class="links">
+            <a class="link arxiv" href="https://arxiv.org/abs/2607.25182" target="_blank" rel="noopener"><span class="dot"></span>arXiv 2607.25182</a>
+            <a class="link" href="https://huggingface.co/AdarshSingh7647" target="_blank" rel="noopener"><span class="dot"></span>Hugging Face models</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper reveal">
+        <div>
+          <div class="venue">
+            <span class="pill hot">ACL 2026, main conference</span>
+            <span class="pill">First author</span>
+          </div>
+          <h3>CRAFT: Training-Free Cascaded Retrieval for Tabular QA</h3>
+          <p class="body">
+            A zero-shot retrieval pipeline. A cheap sparse model filters the candidate tables first, then dense
+            rerankers take a closer look. It makes 33x fewer embedding calls and reaches Recall@10 of 87.16 on
+            NQ-Tables, with F1 of 67.72 against 54.17.
+          </p>
+        </div>
+        <div class="side">
+          <div class="facts">
+            <div class="fact">
+              <div class="num"><span class="grad-text">33x</span></div>
+              <div class="cap">fewer embedding calls</div>
+            </div>
+          </div>
+          <div class="links">
+            <a class="link acl" href="https://aclanthology.org/2026.acl-long.149/" target="_blank" rel="noopener"><span class="dot"></span>ACL Anthology</a>
+            <a class="link arxiv" href="https://arxiv.org/abs/2505.14984" target="_blank" rel="noopener"><span class="dot"></span>arXiv 2505.14984</a>
+            <a class="link gh" href="https://github.com/coral-lab-asu/CRAFT" target="_blank" rel="noopener"><span class="dot"></span>Code</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper reveal">
+        <div>
+          <div class="venue">
+            <span class="pill hot">NAACL 2027, submitted</span>
+            <span class="pill">Co-first author</span>
+          </div>
+          <h3>Improving Robustness of Tabular Retrieval via Representational Stability</h3>
+          <p class="body">
+            Table retrievers change their answers depending on how the same table is written, as CSV, TSV, HTML,
+            Markdown or DDL. I treat those formats as noisy views of one meaning and use their centroid as a stable
+            target. A small adapter on a frozen encoder learns to move each format toward it.
+          </p>
+        </div>
+        <div class="side">
+          <div class="facts">
+            <div class="fact">
+              <div class="num"><span class="grad-text">5</span> formats</div>
+              <div class="cap">serializations tested for the same tables</div>
+            </div>
+          </div>
+          <div class="links">
+            <a class="link arxiv" href="https://arxiv.org/abs/2604.24040" target="_blank" rel="noopener"><span class="dot"></span>arXiv 2604.24040</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

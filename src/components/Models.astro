@@ -1,0 +1,224 @@
+---
+import hf from "../data/huggingface.json";
+
+const fmt = (n: number) => n.toLocaleString("en-US");
+const label: Record<string, string> = {
+  Passage: "Passage reranking",
+  Table: "Table reranking",
+  Math: "Math reasoning",
+  Other: "Other",
+  Data: "Dataset",
+};
+const models = [...hf.models].sort((a, b) => b.downloadsAll - a.downloadsAll);
+const datasets = [...hf.datasets].sort((a, b) => b.downloadsAll - a.downloadsAll);
+const maxAll = Math.max(1, ...models.map((m) => m.downloadsAll));
+const total30 = models.reduce((s, m) => s + m.downloads30d, 0);
+const totalDatasets = datasets.reduce((s, d) => s + d.downloadsAll, 0);
+const snapshotDate = new Date(hf.generatedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const filters = ["All", "Passage", "Table", "Math", "Other"];
+---
+
+<section class="section band" id="models">
+  <div class="wrap">
+    <span class="eyebrow reveal">Hugging Face</span>
+    <h2 class="reveal">Downloads, ranked</h2>
+    <p class="lede reveal">
+      Every model I have published, sorted by all-time downloads. The numbers are read from Hugging Face when this
+      page loads, so they stay current.
+    </p>
+
+    <div class="hf-top reveal">
+      <div class="hf-total">
+        <div class="num"><span data-hf-total>{fmt(hf.totalModelDownloads)}</span></div>
+        <div class="cap">model downloads across {hf.modelCount} models, all time</div>
+        <div class="live" data-live-status>
+          <span class="pulse"></span>
+          <span data-live-text>Snapshot from {snapshotDate}. Checking live numbers…</span>
+        </div>
+      </div>
+      <div class="hf-split">
+        <div class="mini">
+          <div class="num" data-hf-30d>{fmt(total30)}</div>
+          <div class="cap">downloads in the last 30 days</div>
+        </div>
+        <div class="mini">
+          <div class="num" data-hf-datasets>{fmt(totalDatasets)}</div>
+          <div class="cap">downloads of my {hf.datasetCount} datasets, all time</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter by family">
+      {filters.map((f, i) => (
+        <button class="chip" type="button" data-filter={f} aria-pressed={i === 0 ? "true" : "false"}>{f}</button>
+      ))}
+    </div>
+
+    <div class="board reveal" data-board>
+      <div class="board-head" role="row">
+        <div>#</div>
+        <div>Model</div>
+        <div style="text-align:right">All time</div>
+        <div>Share of top model</div>
+        <div style="text-align:right">Last 30 days</div>
+      </div>
+
+      {models.map((m, i) => (
+        <div
+          class={`board-row ${i === 0 ? "top1" : i === 1 ? "top2" : i === 2 ? "top3" : ""}`}
+          data-id={m.id}
+          data-kind={m.kind}
+          data-all={m.downloadsAll}
+          data-30d={m.downloads30d}
+        >
+          <div class="rank" data-rank>{i + 1}</div>
+          <div class="mname">
+            <a href={`https://huggingface.co/${m.id}`} target="_blank" rel="noopener">{m.name}</a>
+            <br />
+            <span class={`family ${m.kind}`}>{label[m.kind] ?? m.kind}</span>
+          </div>
+          <div class="dl" data-all-text>{fmt(m.downloadsAll)}</div>
+          <div class="bar bar-cell" aria-hidden="true">
+            <span style={`width:${((m.downloadsAll / maxAll) * 100).toFixed(2)}%`} data-bar></span>
+          </div>
+          <div class="recent" data-30d-text>{fmt(m.downloads30d)}<small>30 days</small></div>
+        </div>
+      ))}
+
+      <div class="board-foot">
+        <span data-count-text>Showing the top 10 of {models.length} models</span>
+        <button class="more" type="button" data-more>Show all {models.length} models</button>
+      </div>
+    </div>
+
+    <div class="datasets reveal" aria-label="Datasets">
+      {datasets.map((d) => (
+        <a class="dataset" href={`https://huggingface.co/datasets/${d.id}`} target="_blank" rel="noopener" data-dataset={d.id}>
+          <span>{d.name}</span>
+          <span class="n" data-dataset-count>{fmt(d.downloadsAll)}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ endpoint: "https://huggingface.co/api", user: hf.user, labels: label }}>
+  (() => {
+    const fmt = (n) => Number(n).toLocaleString("en-US");
+    const board = document.querySelector("[data-board]");
+    if (!board) return;
+    const rows = () => [...board.querySelectorAll(".board-row")];
+    const status = document.querySelector("[data-live-status]");
+    const statusText = document.querySelector("[data-live-text]");
+    const more = board.querySelector("[data-more]");
+    const countText = board.querySelector("[data-count-text]");
+    const LIMIT = 10;
+    let filter = "All";
+    let expanded = false;
+
+    function render() {
+      const all = rows();
+      let matched = 0;
+      for (const row of all) {
+        const ok = filter === "All" || row.dataset.kind === filter;
+        if (!ok) {
+          row.hidden = true;
+          continue;
+        }
+        matched += 1;
+        row.hidden = filter === "All" && !expanded && matched > LIMIT;
+      }
+      const shownCount = all.filter((r) => !r.hidden).length;
+      if (countText) countText.textContent = `Showing ${shownCount} of ${matched} ${filter === "All" ? "models" : filter.toLowerCase() + " models"}`;
+      if (more) {
+        const needsMore = filter === "All" && all.length > LIMIT;
+        more.hidden = !needsMore;
+        more.textContent = expanded ? `Show top ${LIMIT}` : `Show all ${all.length} models`;
+      }
+    }
+
+    document.querySelectorAll("[data-filter]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filter = btn.dataset.filter;
+        expanded = false;
+        document.querySelectorAll("[data-filter]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        render();
+      });
+    });
+    if (more) {
+      more.addEventListener("click", () => {
+        expanded = !expanded;
+        render();
+      });
+    }
+    render();
+
+    function applyLive(models) {
+      const byId = new Map(models.map((m) => [m.id, m]));
+      const container = board;
+      const current = rows();
+      let touched = 0;
+      for (const row of current) {
+        const live = byId.get(row.dataset.id);
+        if (!live) continue;
+        touched += 1;
+        row.dataset.all = String(live.downloadsAllTime ?? 0);
+        row.dataset["30d"] = String(live.downloads ?? 0);
+        row.querySelector("[data-all-text]").textContent = fmt(live.downloadsAllTime ?? 0);
+        row.querySelector("[data-30d-text]").innerHTML = `${fmt(live.downloads ?? 0)}<small>30 days</small>`;
+      }
+      // re-sort by all time downloads
+      const sorted = rows().sort((a, b) => Number(b.dataset.all) - Number(a.dataset.all));
+      const max = Math.max(1, ...sorted.map((r) => Number(r.dataset.all)));
+      sorted.forEach((row, i) => {
+        container.insertBefore(row, container.querySelector(".board-foot"));
+        row.querySelector("[data-rank]").textContent = String(i + 1);
+        row.classList.toggle("top1", i === 0);
+        row.classList.toggle("top2", i === 1);
+        row.classList.toggle("top3", i === 2);
+        const bar = row.querySelector("[data-bar]");
+        bar.style.width = `${((Number(row.dataset.all) / max) * 100).toFixed(2)}%`;
+      });
+      return touched;
+    }
+
+    async function refresh() {
+      const q = `author=${encodeURIComponent(user)}&limit=200&expand[]=downloadsAllTime&expand[]=downloads&expand[]=likes&expand[]=lastModified`;
+      try {
+        const [mRes, dRes] = await Promise.all([
+          fetch(`${endpoint}/models?${q}`),
+          fetch(`${endpoint}/datasets?${q}`),
+        ]);
+        if (!mRes.ok || !dRes.ok) throw new Error("HF status");
+        const models = await mRes.json();
+        const datasets = await dRes.json();
+        const total = models.reduce((s, m) => s + (m.downloadsAllTime ?? 0), 0);
+        const total30 = models.reduce((s, m) => s + (m.downloads ?? 0), 0);
+        const dsTotal = datasets.reduce((s, d) => s + (d.downloadsAllTime ?? 0), 0);
+
+        document.querySelectorAll("[data-hf-total]").forEach((el) => (el.textContent = fmt(total)));
+        document.querySelectorAll("[data-hf-30d]").forEach((el) => (el.textContent = fmt(total30)));
+        document.querySelectorAll("[data-hf-datasets]").forEach((el) => (el.textContent = fmt(dsTotal)));
+
+        const dsById = new Map(datasets.map((d) => [d.id, d]));
+        document.querySelectorAll("[data-dataset]").forEach((a) => {
+          const live = dsById.get(a.dataset.dataset);
+          if (live) a.querySelector("[data-dataset-count]").textContent = fmt(live.downloadsAllTime ?? 0);
+        });
+
+        applyLive(models);
+        render();
+
+        if (statusText) {
+          const time = new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+          statusText.textContent = `Live from Hugging Face, checked at ${time}`;
+        }
+      } catch (err) {
+        if (status) status.classList.add("off");
+        if (statusText) statusText.textContent = "Showing the saved snapshot. Live numbers are unavailable right now.";
+      }
+    }
+
+    refresh();
+  })();
+</script>
