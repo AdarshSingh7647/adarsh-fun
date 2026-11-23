@@ -21,6 +21,88 @@
   --shadow: 0 1px 0 rgba(22, 20, 26, 0.04), 0 18px 40px -22px rgba(22, 20, 26, 0.22);
   --radius: 20px;
   --wrap: 1120px;
+  --nav-bg: rgba(255, 252, 246, 0.78);
+  --ghost-bg: rgba(255, 252, 246, 0.7);
+  --on-ink: #ffffff;
+  --cell-empty: #ebe3d3;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #120f17;
+  --paper-2: #1d1828;
+  --card: #1a1624;
+  --ink: #f4efe6;
+  --ink-2: #d4cde0;
+  --muted: #9a92a8;
+  --line: #2d2740;
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+  --nav-bg: rgba(26, 22, 36, 0.8);
+  --ghost-bg: rgba(26, 22, 36, 0.7);
+  --on-ink: #16141a;
+  --cell-empty: #2a2437;
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .hero::before {
+  opacity: 0.7;
+}
+
+[data-theme="dark"] .link .ico[src*="github"],
+[data-theme="dark"] .link .ico[src*="arxiv"],
+[data-theme="dark"] .link .ico[src*="googlescholar"],
+[data-theme="dark"] .link .ico[src*="resume"] {
+  filter: invert(1) brightness(1.1);
+}
+
+[data-theme="dark"] .paper.featured {
+  background:
+    radial-gradient(120% 80% at 100% 0%, rgba(255, 181, 71, 0.10), transparent 60%),
+    radial-gradient(90% 70% at 0% 100%, rgba(109, 91, 208, 0.16), transparent 60%),
+    var(--card);
+}
+
+[data-theme="dark"] .nav a.active {
+  color: var(--on-ink);
+}
+
+/* theme toggle */
+
+.theme-toggle {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-left: 0.2rem;
+  border-radius: 999px;
+  color: var(--ink);
+  background: transparent;
+  transition: background 0.2s;
+}
+
+.theme-toggle:hover {
+  background: rgba(127, 127, 127, 0.14);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
 }
 
 *,
@@ -156,7 +238,7 @@ p {
   gap: 0.25rem;
   padding: 0.35rem;
   border-radius: 999px;
-  background: rgba(255, 252, 246, 0.78);
+  background: var(--nav-bg);
   backdrop-filter: saturate(1.4) blur(14px);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
   box-shadow: 0 10px 30px -14px rgba(22, 20, 26, 0.3), inset 0 0 0 1px rgba(22, 20, 26, 0.06);
@@ -180,7 +262,7 @@ p {
 }
 
 .nav a.active {
-  color: #fff;
+  color: var(--on-ink);
   background: var(--ink);
 }
 
@@ -311,7 +393,7 @@ p {
 }
 
 .btn-primary {
-  color: #fff;
+  color: var(--on-ink);
   background: var(--ink);
   box-shadow: 0 12px 30px -12px rgba(22, 20, 26, 0.55);
 }
@@ -323,7 +405,7 @@ p {
 
 .btn-ghost {
   color: var(--ink);
-  background: rgba(255, 252, 246, 0.7);
+  background: var(--ghost-bg);
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
@@ -350,7 +432,7 @@ p {
 .stat {
   padding: 1.2rem 1.3rem 1.3rem;
   border-radius: var(--radius);
-  background: rgba(255, 252, 246, 0.72);
+  background: var(--ghost-bg);
   box-shadow: inset 0 0 0 1px var(--line);
 }
 
@@ -587,7 +669,7 @@ p {
 }
 
 .pill.hot {
-  color: #fff;
+  color: var(--on-ink);
   background: var(--ink);
 }
 
@@ -673,7 +755,7 @@ p {
 }
 
 .link:hover {
-  background: #fff;
+  background: var(--card);
   box-shadow: inset 0 0 0 1.5px var(--ink);
   transform: translateY(-1px);
 }
@@ -1296,7 +1378,7 @@ p {
 .resume-mobile {
   display: none;
   padding: 1rem;
-  background: #e9e4da;
+  background: var(--paper-2);
 }
 
 .resume-mobile img {
@@ -1641,4 +1723,16 @@ footer .wrap {
 .thesis .advisor {
   font-weight: 500;
   color: var(--ink-2);
+}
+
+/* ---------- project thumbnails ---------- */
+
+.project-thumb {
+  width: 96px;
+  height: auto;
+  margin-bottom: 0.6rem;
+  border-radius: 14px;
+  background: var(--paper-2);
+  padding: 0.6rem;
+  object-fit: contain;
 }

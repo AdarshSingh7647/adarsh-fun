@@ -9,7 +9,7 @@ const TOP = 22;
 const weeks = gh.weeks;
 const width = weeks.length * PITCH;
 const height = 7 * PITCH + TOP;
-const palette = ["#ebe3d3", "#ffe0b0", "#ffb547", "#ff7a52", "#6d5bd0"];
+const palette = ["var(--cell-empty)", "#ffe0b0", "#ffb547", "#ff7a52", "#6d5bd0"];
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // month labels: place a label on the first week that starts in a new month
@@ -85,7 +85,7 @@ const longest = (() => {
                 width={CELL}
                 height={CELL}
                 rx="2.5"
-                fill={palette[d.level]}
+                style={`fill:${palette[d.level]}`}
               >
                 <title>{`${d.count} contribution${d.count === 1 ? "" : "s"} on ${new Date(d.date + "T00:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}`}</title>
               </rect>
