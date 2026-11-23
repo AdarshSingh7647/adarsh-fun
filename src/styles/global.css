@@ -1583,3 +1583,12 @@ footer .wrap {
   flex: 0 0 16px;
   object-fit: contain;
 }
+
+/* ---------- hero quick links ---------- */
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+}
