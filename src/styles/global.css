@@ -1615,3 +1615,30 @@ footer .wrap {
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+
+/* ---------- thesis block ---------- */
+
+.thesis {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.thesis-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.thesis p {
+  margin-top: 0.5rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.thesis .advisor {
+  font-weight: 500;
+  color: var(--ink-2);
+}
