@@ -1,11 +1,7 @@
 <section class="section" id="papers">
   <div class="wrap">
     <span class="eyebrow reveal">Papers</span>
-    <h2 class="reveal">Tables, retrieval, and teaching small models to reason</h2>
-    <p class="lede reveal">
-      Each paper asks a narrower question than the last. Can a small model learn the useful part of a bigger model's
-      reasoning without copying all of it? Can a table be retrieved no matter how it is written down?
-    </p>
+    <h2 class="reveal">Papers</h2>
 
     <div class="papers">
       <article class="paper featured reveal">
@@ -16,11 +12,7 @@
           </div>
           <h3>EKLAV: Elicited Key CoT Learning via Answer-Only Supervision</h3>
           <p class="formerly">Previously released as TabRank.</p>
-          <p class="body">
-            The teacher's reasoning goes into the prompt, and the student trains only on the final answer. On BRIGHT
-            passage reranking it wins 41 of 48 model and domain comparisons. Against chain-of-thought distillation, it
-            cuts training compute by 24 to 32% and inference time by 15 to 33%.
-          </p>
+          <p class="body">The reasoning goes in the prompt and the student learns only the answer. It wins 41 of 48 BRIGHT comparisons with 24 to 32% less training compute.</p>
         </div>
         <div class="side">
           <div class="facts">
@@ -47,11 +39,7 @@
             <span class="pill">First author</span>
           </div>
           <h3>CRAFT: Training-Free Cascaded Retrieval for Tabular QA</h3>
-          <p class="body">
-            A zero-shot retrieval pipeline. A cheap sparse model filters the candidate tables first, then dense
-            rerankers take a closer look. It makes 33x fewer embedding calls and reaches Recall@10 of 87.16 on
-            NQ-Tables, with F1 of 67.72 against 54.17.
-          </p>
+          <p class="body">A sparse filter runs first, then dense rerankers. 33x fewer embedding calls and Recall@10 of 87.16 on NQ-Tables.</p>
         </div>
         <div class="side">
           <div class="facts">
@@ -75,11 +63,7 @@
             <span class="pill">Co-first author</span>
           </div>
           <h3>Improving Robustness of Tabular Retrieval via Representational Stability</h3>
-          <p class="body">
-            Table retrievers change their answers depending on how the same table is written, as CSV, TSV, HTML,
-            Markdown or DDL. I treat those formats as noisy views of one meaning and use their centroid as a stable
-            target. A small adapter on a frozen encoder learns to move each format toward it.
-          </p>
+          <p class="body">Table retrievers change their answers depending on how a table is written. A small adapter pulls every format toward one stable representation.</p>
         </div>
         <div class="side">
           <div class="facts">

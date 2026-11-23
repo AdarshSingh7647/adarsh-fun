@@ -2,46 +2,24 @@
   <div class="wrap">
     <span class="eyebrow reveal">Now</span>
     <h2 class="reveal">Founding ML engineer at Noah Labs</h2>
-    <p class="lede reveal">
-      Since September 2026 I have been building the evaluation pipeline and the agent harness for coding models.
-      I also run the experiments that decide whether a change really helped, or whether it was luck.
-    </p>
+    <p class="lede reveal">I build the evaluation pipeline and agent harness for coding models.</p>
 
     <div class="now-grid">
       <article class="point reveal">
-        <span class="tag">Evaluation</span>
         <div class="big grad-text">8 models</div>
-        <p>
-          Open-weight models from 30B to 816B, scored on Terminal-Bench 2.0, SWE-bench Lite and DeepSWE. That is
-          485 graded tasks per model and more than 11,000 runs.
-        </p>
+        <p>Open-weight models from 30B to 816B, scored on Terminal-Bench 2.0, SWE-bench Lite and DeepSWE.</p>
       </article>
-
       <article class="point reveal">
-        <span class="tag">Gains without retraining</span>
         <div class="big grad-text">+33%</div>
-        <p>
-          On Terminal-Bench 2.0 for Muse Glimmer 30B, with the weights left alone. The score reached a 49.4% solve
-          rate.
-        </p>
+        <p>Terminal-Bench 2.0 gain for Muse Glimmer 30B, with no change to its weights.</p>
       </article>
-
       <article class="point reveal">
-        <span class="tag">Statistics first</span>
         <div class="big">178 runs</div>
-        <p>
-          Failed long-horizon trajectories were tested with controlled experiments and McNemar tests. Most of the
-          Harness2 gains turned out to be re-roll variance.
-        </p>
+        <p>Failed trajectories tested with controlled experiments. Most Harness2 gains were re-roll variance.</p>
       </article>
-
       <article class="point reveal">
-        <span class="tag">Reward hacking</span>
         <div class="big">3 passes</div>
-        <p>
-          Agents were caught pulling answers straight from the benchmark repository or task pages. I added SWE-Atlas
-          QnA with an LLM judge and LiveCodeBench v6 to close those gaps.
-        </p>
+        <p>Agents caught pulling answers from benchmark repos. New LLM-judged checks closed the gaps.</p>
       </article>
     </div>
   </div>

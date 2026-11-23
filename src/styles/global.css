@@ -1293,6 +1293,104 @@ p {
   color: var(--muted);
 }
 
+.resume-mobile {
+  display: none;
+  padding: 2rem 1.4rem 2.2rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.resume-mobile p {
+  margin-bottom: 1.2rem;
+}
+
+.resume-mobile .btn {
+  margin: 0.3rem;
+}
+
+@media (max-width: 760px) {
+  .resume-pdf {
+    display: none;
+  }
+  .resume-mobile {
+    display: block;
+  }
+}
+
+/* ---------- projects ---------- */
+
+.projects {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 2rem 2.1rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink-2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px -28px rgba(22, 20, 26, 0.35);
+}
+
+.project h3 {
+  font-size: 1.6rem;
+}
+
+.project p {
+  font-size: 1rem;
+}
+
+.project-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-link {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+@media (max-width: 760px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- logos ---------- */
+
+.job .logo {
+  height: 38px;
+  width: auto;
+  margin-bottom: 1.1rem;
+  object-fit: contain;
+  display: block;
+}
+
+.card .logo {
+  height: 56px;
+  width: auto;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  display: block;
+}
+
 /* ---------- contact + footer ---------- */
 
 .contact {
