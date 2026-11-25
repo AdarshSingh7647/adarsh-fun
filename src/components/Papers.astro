@@ -1,24 +1,27 @@
 <section class="section" id="papers">
   <div class="wrap">
-    <span class="eyebrow reveal">Papers</span>
+    <span class="eyebrow reveal">Research</span>
     <h2 class="reveal">Papers</h2>
 
     <div class="papers">
       <article class="paper featured reveal">
         <div>
-          <div class="venue">
-            <span class="pill hot">ICLR 2027, under review</span>
-            <span class="pill">First author</span>
-          </div>
+          <div class="venue-badge">ICLR 2027 · Under review</div>
+          <div class="venue"><span class="pill">First author</span></div>
           <h3>EKLAV: Elicited Key CoT Learning via Answer-Only Supervision</h3>
-          <p class="formerly">Previously released as TabRank.</p>
-          <p class="body">The reasoning goes in the prompt and the student learns only the answer. It wins 41 of 48 BRIGHT comparisons with 24 to 32% less training compute.</p>
+          <p class="formerly">Formerly released as TabRank.</p>
+          <dl class="steps">
+            <div><dt>Problem</dt><dd>Small AI models are expensive to train when they copy a large model's full reasoning.</dd></div>
+            <div><dt>Idea</dt><dd>Show the reasoning in the prompt, and train the small model only on the final answer.</dd></div>
+            <div><dt>Result</dt><dd>Better ranking on 41 of 48 tests, with up to 32% less training compute.</dd></div>
+          </dl>
+          <p class="explain">BRIGHT is a benchmark that tests how well a model ranks documents for a question, across 12 subject areas.</p>
         </div>
         <div class="side">
           <div class="facts">
             <div class="fact">
-              <div class="num"><span class="grad-text">41 / 48</span></div>
-              <div class="cap">model and domain comparisons won on BRIGHT</div>
+              <div class="num"><span class="grad-text">41 of 48</span></div>
+              <div class="cap">ranking tests won on BRIGHT</div>
             </div>
             <div class="fact">
               <div class="num"><span class="grad-text">29</span> models</div>
@@ -26,31 +29,33 @@
             </div>
           </div>
           <div class="links">
-            <a class="link arxiv" href="https://arxiv.org/abs/2607.25182" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />arXiv 2607.25182</a>
-            <a class="link" href="https://huggingface.co/AdarshSingh7647" target="_blank" rel="noopener"><img class="ico" src="/icons/huggingface.svg" alt="" width="16" height="16" />Hugging Face models</a>
+            <a class="link arxiv" href="https://arxiv.org/abs/2607.25182" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />Read on arXiv</a>
+            <a class="link" href="https://huggingface.co/AdarshSingh7647" target="_blank" rel="noopener"><img class="ico" src="/icons/huggingface.svg" alt="" width="16" height="16" />Models on Hugging Face</a>
           </div>
         </div>
       </article>
 
       <article class="paper reveal">
         <div>
-          <div class="venue">
-            <span class="pill hot">ACL 2026, main conference</span>
-            <span class="pill">First author</span>
-          </div>
+          <div class="venue-badge">ACL 2026 · Main conference</div>
+          <div class="venue"><span class="pill">First author</span></div>
           <h3>CRAFT: Training-Free Cascaded Retrieval for Tabular QA</h3>
-          <p class="body">A sparse filter runs first, then dense rerankers. 33x fewer embedding calls and Recall@10 of 87.16 on NQ-Tables.</p>
+          <dl class="steps">
+            <div><dt>Problem</dt><dd>Finding the right table for a question means checking many tables. That is slow.</dd></div>
+            <div><dt>Idea</dt><dd>A cheap filter removes most tables first. A stronger model then ranks the rest. No training needed.</dd></div>
+            <div><dt>Result</dt><dd>The right table is in the top 10 results for 87.16% of questions.</dd></div>
+          </dl>
         </div>
         <div class="side">
           <div class="facts">
             <div class="fact">
-              <div class="num"><span class="grad-text">33x</span></div>
-              <div class="cap">fewer embedding calls</div>
+              <div class="num"><span class="grad-text">87.16%</span></div>
+              <div class="cap">top 10 recall on NQ-Tables</div>
             </div>
           </div>
           <div class="links">
             <a class="link acl" href="https://aclanthology.org/2026.acl-long.149/" target="_blank" rel="noopener"><img class="ico" src="/icons/acl.svg" alt="" width="16" height="16" />ACL Anthology</a>
-            <a class="link arxiv" href="https://arxiv.org/abs/2505.14984" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />arXiv 2505.14984</a>
+            <a class="link arxiv" href="https://arxiv.org/abs/2505.14984" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />arXiv</a>
             <a class="link gh" href="https://github.com/coral-lab-asu/CRAFT" target="_blank" rel="noopener"><img class="ico" src="/icons/github.svg" alt="" width="16" height="16" />Code</a>
           </div>
         </div>
@@ -58,22 +63,24 @@
 
       <article class="paper reveal">
         <div>
-          <div class="venue">
-            <span class="pill hot">NAACL 2027, submitted</span>
-            <span class="pill">Co-first author</span>
-          </div>
+          <div class="venue-badge">NAACL 2027 · Under review</div>
+          <div class="venue"><span class="pill">Co-first author</span></div>
           <h3>Improving Robustness of Tabular Retrieval via Representational Stability</h3>
-          <p class="body">Table retrievers change their answers depending on how a table is written. A small adapter pulls every format toward one stable representation.</p>
+          <dl class="steps">
+            <div><dt>Problem</dt><dd>The same table written as CSV, HTML or Markdown can get different search results.</dd></div>
+            <div><dt>Idea</dt><dd>A small adapter pulls every format toward one shared representation.</dd></div>
+            <div><dt>Result</dt><dd>Table search gives more consistent results across formats.</dd></div>
+          </dl>
         </div>
         <div class="side">
           <div class="facts">
             <div class="fact">
               <div class="num"><span class="grad-text">5</span> formats</div>
-              <div class="cap">serializations tested for the same tables</div>
+              <div class="cap">CSV, TSV, HTML, Markdown and DDL</div>
             </div>
           </div>
           <div class="links">
-            <a class="link arxiv" href="https://arxiv.org/abs/2604.24040" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />arXiv 2604.24040</a>
+            <a class="link arxiv" href="https://arxiv.org/abs/2604.24040" target="_blank" rel="noopener"><img class="ico" src="/icons/arxiv.svg" alt="" width="16" height="16" />arXiv</a>
           </div>
         </div>
       </article>

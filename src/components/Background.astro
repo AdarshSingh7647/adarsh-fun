@@ -4,25 +4,37 @@
     <h2 class="reveal">Education</h2>
 
     <div class="bg-grid">
-      <article class="card reveal">
-        <h3>M.S. Computer Science</h3>
+      <article class="card edu reveal">
         <img class="logo" src="/logos/asu.png" alt="Arizona State University" width="80" height="62" />
-        <div class="meta">Arizona State University, Tempe · Aug 2024 to Aug 2026 · GPA 3.44 of 4.00</div>
-        <ul>
-          <li>Graduate TA for three semesters.</li>
-          <li>Reviewer for SURGeLLM (ACL 2026) and GRAIL-V (CVPR 2026).</li>
-        </ul>
+        <h3>Master of Science in Computer Science</h3>
+        <dl class="edu-rows">
+          <div><dt>School</dt><dd>Arizona State University, Tempe, Arizona</dd></div>
+          <div><dt>Dates</dt><dd>Aug 2024 to Aug 2026</dd></div>
+          <div><dt>CGPA</dt><dd>3.44 out of 4.00</dd></div>
+        </dl>
         <div class="thesis">
           <div class="thesis-label">Thesis</div>
-          <p>Toward Reliable Table Retrieval: Efficient Retrieval, Stable Representations and Reasoning-Aware Re-Ranking</p>
+          <p>Towards Reliable Table Retrieval: Efficient Retrieval, Stable Representations and Reasoning-Aware Re-ranking</p>
           <p class="advisor">Advisor: <a class="inline-link" href="https://coral-lab-asu.github.io/" target="_blank" rel="noopener">Prof. Dr. Vivek Gupta, Coral Lab</a></p>
         </div>
+        <ul class="edu-list">
+          <li>Graduate teaching assistant for three semesters.</li>
+          <li>Reviewer for SURGeLLM (ACL 2026) and GRAIL-V (CVPR 2026).</li>
+        </ul>
       </article>
 
-      <article class="card reveal">
-        <h3>B.Tech. Electrical and Electronics Engineering</h3>
+      <article class="card edu reveal">
         <img class="logo" src="/logos/nit.jpeg" alt="NIT Warangal" width="64" height="64" />
-        <div class="meta">National Institute of Technology Warangal, India · Aug 2019 to May 2023</div>
+        <h3>Bachelor of Technology in Electrical and Electronics Engineering</h3>
+        <dl class="edu-rows">
+          <div><dt>School</dt><dd>National Institute of Technology Warangal, India</dd></div>
+          <div><dt>Dates</dt><dd>Aug 2019 to May 2023</dd></div>
+          <div><dt>CGPA</dt><dd>7.11 out of 10.0</dd></div>
+        </dl>
+        <div class="award">
+          <div class="thesis-label">Scholarship</div>
+          <p><strong>Institute Merit Scholarship, 2019 and 2020.</strong> Awarded for academic excellence, top 5% at NIT Warangal.</p>
+        </div>
       </article>
     </div>
 
@@ -32,19 +44,19 @@
         <div class="skill-group">
           <h4>Post-training</h4>
           <div class="pills">
-            {["RLVR", "RL environments", "Reward signals", "SFT", "Distillation", "LoRA and PEFT", "Synthetic data", "Rejection sampling", "Data curation", "TRL", "LLaMA-Factory"].map((s) => <span class="pill">{s}</span>)}
+            {["RLVR", "RL environments", "Reward signals", "SFT", "Distillation", "LoRA and PEFT", "Synthetic data", "TRL", "LLaMA-Factory"].map((s) => <span class="pill">{s}</span>)}
           </div>
         </div>
         <div class="skill-group">
           <h4>Evaluation and agents</h4>
           <div class="pills">
-            {["Evaluation design", "Graders", "LLM as judge", "Coding agents", "Agent harnesses", "Tool use", "Function calling", "RAG", "Terminal-Bench 2.0", "SWE-bench", "LiveCodeBench v6", "Statistics", "Failure analysis"].map((s) => <span class="pill">{s}</span>)}
+            {["Evaluation design", "LLM as judge", "Coding agents", "Agent harnesses", "Tool use", "RAG", "Terminal-Bench 2.0", "SWE-bench", "LiveCodeBench v6", "Statistics"].map((s) => <span class="pill">{s}</span>)}
           </div>
         </div>
         <div class="skill-group">
           <h4>Systems and tools</h4>
           <div class="pills">
-            {["Python", "PyTorch", "Transformers", "C and C++", "SQL", "vLLM", "DDP and NCCL", "FlashAttention-2", "CUDA", "Docker", "Slurm", "AWS", "GCP", "Git and CI/CD", "pytest"].map((s) => <span class="pill">{s}</span>)}
+            {["Python", "PyTorch", "Transformers", "C and C++", "SQL", "vLLM", "DDP and NCCL", "CUDA", "Docker", "Slurm", "AWS", "GCP", "Git and CI/CD"].map((s) => <span class="pill">{s}</span>)}
           </div>
         </div>
         <div class="skill-group">

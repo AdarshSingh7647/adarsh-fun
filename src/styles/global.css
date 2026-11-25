@@ -1736,3 +1736,124 @@ footer .wrap {
   padding: 0.6rem;
   object-fit: contain;
 }
+
+/* ---------- venue badge (clear, large) ---------- */
+
+.venue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  margin-bottom: 0.9rem;
+  border-radius: 12px;
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #fff;
+  background: var(--grad);
+  box-shadow: 0 10px 24px -14px rgba(255, 106, 77, 0.8);
+}
+
+[data-theme="dark"] .venue-badge {
+  color: #16141a;
+}
+
+/* ---------- paper steps: problem, idea, result ---------- */
+
+.steps {
+  margin: 1.3rem 0 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.steps > div {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 0.9rem;
+  align-items: baseline;
+}
+
+.steps dt {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.steps dd {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.explain {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .steps > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+
+/* ---------- education rows ---------- */
+
+.edu h3 {
+  font-size: 1.4rem;
+}
+
+.edu-rows {
+  margin: 1.1rem 0 0;
+  display: grid;
+  gap: 0;
+}
+
+.edu-rows > div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.8rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.edu-rows dt {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 0.2rem;
+}
+
+.edu-rows dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.edu-list {
+  margin-top: 1rem;
+}
+
+.award {
+  margin-top: 1.2rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.award p {
+  margin-top: 0.4rem;
+  color: var(--ink-2);
+}
+
+.award strong {
+  color: var(--ink);
+}
